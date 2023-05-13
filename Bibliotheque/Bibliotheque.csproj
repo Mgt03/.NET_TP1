@@ -67,7 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Entity\Class1.cs" />
+    <Compile Include="Entity\Employe.cs" />
+    <Compile Include="Entity\Experience.cs" />
+    <Compile Include="Entity\Formation.cs" />
+    <Compile Include="Entity\Offre.cs" />
+    <Compile Include="Entity\Postulation.cs" />
+    <Compile Include="Entity\Statut.cs" />
+    <Compile Include="Fluent\EmployeeFluent.cs" />
+    <Compile Include="Fluent\ExperienceFluent.cs" />
+    <Compile Include="Fluent\FormationFluent.cs" />
+    <Compile Include="Fluent\OffreFluent.cs" />
+    <Compile Include="Fluent\PostulationFluent.cs" />
+    <Compile Include="Fluent\StatutFluent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
