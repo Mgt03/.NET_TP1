@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Bibliotheque;
 
 namespace dotNET.MURAT.GRANET
 {
@@ -10,6 +7,16 @@ namespace dotNET.MURAT.GRANET
     {
         static void Main(string[] args)
         {
+            try
+            {
+                var context = new Context();
+                context.Employes.ToList();
+                System.Console.WriteLine("tets");
+            }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
         }
     }
 }
