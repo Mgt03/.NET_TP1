@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotNET.MURAT.GRANET
+namespace BusinessLogicLayer
 {
-    class Program
+    public class BusinessLogicLayer
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
