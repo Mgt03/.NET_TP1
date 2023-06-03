@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\Common\BaseViewModel.xaml.cs" />
     <Compile Include="ViewModels\Common\RelayCommand.cs" />
+    <Compile Include="ViewModels\DetailEmployeVM.cs" />
     <Compile Include="ViewModels\ListOffreVM.cs" />
     <Compile Include="Views\ListOffre.xaml.cs">
       <DependentUpon>ListOffre.xaml</DependentUpon>
@@ -104,6 +105,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bibliotheque\Bibliotheque.csproj">
+      <Project>{d547e824-58d0-46ff-aec7-8edb7ebcdb36}</Project>
+      <Name>Bibliotheque</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
