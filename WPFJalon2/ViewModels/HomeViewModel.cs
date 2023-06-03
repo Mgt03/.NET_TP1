@@ -4,7 +4,7 @@ namespace WPFJalon2.ViewModels
     {
         #region Variables
 
-        private ListOffreVM _listeOffreVM = null;
+        private ListOffreVM _listOffreVM = null;
 
         #endregion
 
@@ -15,7 +15,7 @@ namespace WPFJalon2.ViewModels
         /// </summary>
         public HomeViewModel()
         {
-            _listeOffreVM = new ListOffreVM();
+            _listOffreVM = new ListOffreVM();
         }
 
         #endregion
@@ -25,10 +25,10 @@ namespace WPFJalon2.ViewModels
         /// <summary>
         /// Obtient ou définit le ListeProduitViewModel
         /// </summary>
-        public ListOffreVM ListeOffreVM
+        public ListOffreVM ListOffreVm
         {
-            get { return _listeOffreVM; }
-            set { _listeOffreVM = value; }
+            get { return _listOffreVM; }
+            set { _listOffreVM = value; }
         }
 
         #endregion
