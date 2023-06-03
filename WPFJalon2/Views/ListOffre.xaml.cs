@@ -20,6 +20,7 @@ namespace WPFJalon2.Views
     /// </summary>
     public partial class ListOffre : UserControl
     {
+        
         public ListOffre()
         {
             InitializeComponent();
