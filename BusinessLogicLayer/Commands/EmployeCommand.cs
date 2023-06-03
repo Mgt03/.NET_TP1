@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Commands
 {
-    class EmployeCommand
+    public class EmployeCommand
     {
         private readonly Context context;
 
