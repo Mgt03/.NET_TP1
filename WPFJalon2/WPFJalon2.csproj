@@ -68,8 +68,14 @@
     <Compile Include="ViewModels\Common\BaseViewModel.xaml.cs" />
     <Compile Include="ViewModels\Common\RelayCommand.cs" />
     <Compile Include="ViewModels\DetailEmployeVM.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModels\DetailOffreVM.cs" />
+=======
+>>>>>>> 0cb576ac5356ed2b3ad599975843e6058abea79f
     <Compile Include="ViewModels\ListOffreVM.cs" />
+    <Compile Include="Views\DetailOffre.xaml.cs">
+      <DependentUpon>DetailOffre.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListOffre.xaml.cs">
       <DependentUpon>ListOffre.xaml</DependentUpon>
     </Compile>
@@ -88,6 +94,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DetailOffre.xaml" />
     <Page Include="Views\ListOffre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bibliotheque\Bibliotheque.csproj">
+<<<<<<< HEAD
       <Project>{D547E824-58D0-46FF-AEC7-8EDB7EBCDB36}</Project>
       <Name>Bibliotheque</Name>
     </ProjectReference>
@@ -133,6 +141,11 @@
       <Project>{3c34c079-a162-44d3-af25-8ac8af8cf5b5}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
+=======
+      <Project>{d547e824-58d0-46ff-aec7-8edb7ebcdb36}</Project>
+      <Name>Bibliotheque</Name>
+    </ProjectReference>
+>>>>>>> 0cb576ac5356ed2b3ad599975843e6058abea79f
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -30,5 +30,10 @@ namespace WPFJalon2.Views
         {
 
         }
+
+        private void LastNameCM_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
