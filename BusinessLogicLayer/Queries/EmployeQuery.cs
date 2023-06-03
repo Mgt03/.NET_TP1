@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BusinessLogicLayer.Queries
 {
-    class EmployeQuery
+    public class EmployeQuery
     {
         private readonly Context context;
 
