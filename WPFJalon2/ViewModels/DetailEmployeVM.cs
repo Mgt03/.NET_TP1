@@ -3,6 +3,7 @@ using Cours2_ExempleMVVM.ViewModels.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace WPFJalon2.ViewModels
 {
@@ -81,6 +82,22 @@ namespace WPFJalon2.ViewModels
         {
             get { return _Postulation; }
             set { _Postulation = value; }
+        }
+
+        public ICommand AddOperation
+        {
+            get
+            {
+                if (_addOperation == null)
+                    _addOperation = new RelayCommand(() => this.ShowWindowOperation());
+                return _addOperation;
+            }
+        }
+        private void ShowWindowOperation()
+        {
+            Views.Operation operationWindow = new Views.Operation();
+            operationWindow.DataContext = this;
+            operationWindow.ShowDialog();
         }
     }
 }

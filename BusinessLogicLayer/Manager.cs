@@ -6,20 +6,20 @@ using BusinessLogicLayer.Queries;
 
 namespace BusinessLogicLayer
 {
-    public class BusinessLogicLayer
+    public class Manager
     {
         private Context context;
-        private static BusinessLogicLayer businessLogicLayer;
+        private static Manager businessLogicLayer;
 
-        public BusinessLogicLayer()
+        public Manager()
         {
             context = new Context();
         }
-        public static BusinessLogicLayer Instance()
+        public static Manager Instance()
         {
             if(businessLogicLayer == null)
             {
-                businessLogicLayer = new BusinessLogicLayer();
+                businessLogicLayer = new Manager();
             }
             return businessLogicLayer;
         }
@@ -27,6 +27,13 @@ namespace BusinessLogicLayer
         {
             EmployeQuery eq = new EmployeQuery(context);
             return eq.GetAll().ToList();
+        }
+
+        public List<Offre> GetAllOffres()
+        {
+            OffreQuery oq = new OffreQuery(context);
+            return oq.GetAll().ToList();
+
         }
     }
 }
