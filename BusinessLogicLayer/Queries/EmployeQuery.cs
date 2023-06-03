@@ -24,7 +24,7 @@ namespace BusinessLogicLayer.Queries
 
         public IQueryable<Employe> GetByID(int id)
         {
-            return context.Employes.Where(p => )
+            return context.Employes.Where(e => e.Id == id);
         }
     }
 }
