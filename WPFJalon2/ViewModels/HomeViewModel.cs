@@ -25,7 +25,7 @@ namespace WPFJalon2.ViewModels
         /// <summary>
         /// Obtient ou définit le ListeProduitViewModel
         /// </summary>
-        public ListOffreVM ListOffreVm
+        public ListOffreVM ListOffreVM
         {
             get { return _listOffreVM; }
             set { _listOffreVM = value; }
