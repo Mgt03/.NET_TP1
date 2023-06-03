@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFJalon2.ViewModels;
 
 namespace WPFJalon2
 {
@@ -23,6 +24,7 @@ namespace WPFJalon2
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new HomeViewModel();
         }
     }
 }
