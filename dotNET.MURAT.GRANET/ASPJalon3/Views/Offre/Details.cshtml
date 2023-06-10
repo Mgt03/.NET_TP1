@@ -1,0 +1,22 @@
+@model Bibliotheque.Entity.Offre
+<h2>Détails de l'offre</h2>
+
+<div>
+    <h4>@Model.Intitule</h4>
+    <p>Date: @Model.Date</p>
+    <p>Salaire: @Model.Salaire</p>
+    <p>Description: @Model.Description</p>
+    <p>Responsable: @Model.Responsable</p>
+    <p>Statut: @Model.StatutId</p>
+    <p>Postulations:</p>
+    <ul>
+        @foreach (var postulation in Model.Postulations)
+        {
+            <li>
+                <a href="@Url.Action("Details", "Employe", new { id = postulation.Employe.Id })">@postulation.Employe.Nom, @postulation.Employe.Prenom</a>
+            </li>
+        }
+    </ul>
+</div>
+
+<a href="@Url.Action("Index")">Retour à la liste des offres</a>

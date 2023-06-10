@@ -1,0 +1,27 @@
+@model Bibliotheque.Entity.Employe
+
+<h2>Détails de l'employé</h2>
+
+<div>
+    <h4>@Model.Nom, @Model.Prenom</h4>
+    <p>Date de naissance: @Model.DateNaissance</p>
+    <p>Ancienneté: @Model.Anciennete</p>
+    <p>Biographie: @Model.Biographie</p>
+    <p>Expériences:</p>
+    <ul>
+        @foreach (var experience in Model.Experiences)
+        {
+            <li> @experience.Intitule </li>
+        }
+    </ul>
+    <p>Formations:</p>
+    <ul>
+        @foreach (var formation in Model.Formations)
+        {
+            <li> @formation.Intitule </li>
+        }
+    </ul>
+
+</div>
+
+<a href="@Url.Action("Index")">Retour à la liste des employés</a>
