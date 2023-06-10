@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 using Bibliotheque.Entity;
+using BusinessLogicLayer;
 using BusinessLogicLayer.Commands;
 using BusinessLogicLayer.Queries;
 
@@ -9,29 +10,21 @@ namespace ASPjalon3.Controllers
 {
     public class PostulationController: Controller
     {
-        private readonly OffreQuery _offreQuery;
-        private readonly EmployeQuery _employeQuery;
-        private readonly PostulationCommand _postulationCommand;
+        private readonly Manager _manager;
         
-        public PostulationController(
-            OffreQuery offreQuery,
-            EmployeQuery employeQuery,  
-            PostulationCommand postulationCommand
-        )
+        public PostulationController()
         {
-            _offreQuery = offreQuery;
-            _employeQuery = employeQuery;
-            _postulationCommand = postulationCommand;
+            _manager = Manager.Instance();
         }
 
         public ActionResult Postuler(int id)
         {
-            var offre = _offreQuery.GetByID(id).FirstOrDefault();
+            var offre = _manager.GetByIDOffre(id);
             if (offre == null)
             {
                 return HttpNotFound("Offre non trouvée");
             }
-            var employeConnecte = _employeQuery.GetByID(1).FirstOrDefault();
+            var employeConnecte = _manager.GetByIDEmploye(1);
 
             if (employeConnecte != null)
             {
@@ -43,7 +36,7 @@ namespace ASPjalon3.Controllers
                     Statut = 1
                 };
 
-                _postulationCommand.Ajouter(postulation);
+                _manager.AjouterPostulation(postulation);
                 return RedirectToAction("Details", "Offre", new { id = offre.Id });
 
             }
@@ -55,7 +48,7 @@ namespace ASPjalon3.Controllers
         
         public ActionResult Index()
         {
-            var employeConnecte = _employeQuery.GetByID(1).FirstOrDefault();
+            var employeConnecte = _manager.GetByIDEmploye(1);
             if (employeConnecte == null) return HttpNotFound("Employé non trouvé");
             var postulations = employeConnecte.Postulations;
             return View(postulations);

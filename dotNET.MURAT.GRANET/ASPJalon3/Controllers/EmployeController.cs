@@ -1,30 +1,28 @@
 using System.Linq;
 using System.Web.Mvc;
+using BusinessLogicLayer;
 using BusinessLogicLayer.Queries;
 
 namespace ASPjalon3.Controllers
 {
     public class EmployeController : Controller
     {
-        private readonly EmployeQuery _employeQuery;
+        private readonly Manager _manager;
 
-        public EmployeController(
-            EmployeQuery employeQuery
-        )
+        public EmployeController()
         {
-            _employeQuery = employeQuery;
+            _manager = Manager.Instance();
         }
 
         public ActionResult Index()
         {
-            var employes = _employeQuery.GetAll().ToList();
-            // Récupérer tous les employés
+            var employes = _manager.GetAllEmploye();
             return View(employes);
         }
 
         public ActionResult Details(int id)
         {
-            var employe = _employeQuery.GetByID(id).FirstOrDefault();
+            var employe = _manager.GetByIDEmploye(id);
             if (employe == null)
             {
                 return HttpNotFound("Employé non trouvé");
@@ -34,7 +32,7 @@ namespace ASPjalon3.Controllers
 
         public ActionResult Search(string searchTerm)
         {
-            var employes = _employeQuery.Search(searchTerm).ToList();
+            var employes = _manager.SearchEmploye(searchTerm);
             return View("Index", employes);
         }
     }

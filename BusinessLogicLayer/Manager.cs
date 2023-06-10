@@ -2,6 +2,7 @@
 using System.Linq;
 using Bibliotheque;
 using Bibliotheque.Entity;
+using BusinessLogicLayer.Commands;
 using BusinessLogicLayer.Queries;
 
 namespace BusinessLogicLayer
@@ -40,6 +41,36 @@ namespace BusinessLogicLayer
         {
             StatutQuery sq = new StatutQuery(context);
             return sq.GetAll().ToList();
+        }
+
+        public Employe GetByIDEmploye(int id)
+        {
+            EmployeQuery eq = new EmployeQuery(context);
+            return eq.GetByID(id).FirstOrDefault();
+        }
+
+        public List<Employe> SearchEmploye(string searchTerm)
+        {
+            EmployeQuery eq = new EmployeQuery(context);
+            return eq.Search(searchTerm).ToList();
+        }
+
+        public Offre GetByIDOffre(int id)
+        {
+            OffreQuery oq = new OffreQuery(context);
+            return oq.GetByID(id).FirstOrDefault();
+        }
+
+        public List<Offre> SearchOffre(string searchTerm)
+        {
+            OffreQuery oq = new OffreQuery(context);
+            return oq.Search(searchTerm).ToList();
+        }
+
+        public void AjouterPostulation(Postulation postulation)
+        {
+            PostulationCommand pc = new PostulationCommand(context);
+            pc.Ajouter(postulation);
         }
     }
 }
