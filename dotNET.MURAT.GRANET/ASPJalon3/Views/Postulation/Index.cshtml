@@ -1,0 +1,11 @@
+@model System.Collections.Generic.ICollection<Bibliotheque.Entity.Postulation>
+
+<h2>Postulations</h2>
+<ul>
+    @foreach (var postulation in Model)
+    {
+        <li>
+            <a href="@Url.Action("Details", "Offre", new { id = postulation.Offre.Id })">@postulation.Offre.Intitule</a>
+        </li>
+    }
+</ul>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Queries
 {
-    class OffreQuery
+    public class OffreQuery
     {
         private readonly Context context;
 
@@ -21,7 +21,6 @@ namespace BusinessLogicLayer.Queries
         {
             return context.Offres;
         }
-
         public IQueryable<Offre> GetByID(int id)
         {
             return context.Offres.Where(o => o.Id == id);

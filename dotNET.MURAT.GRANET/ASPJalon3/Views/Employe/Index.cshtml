@@ -1,0 +1,26 @@
+@model System.Collections.Generic.List<Bibliotheque.Entity.Employe>
+
+
+<h1>Liste des employés</h1>
+
+<h2>Rechercher une offre</h2>
+
+<form method="get" action="@Url.Action("Search", "Offre")">
+    <input type="text" name="searchTerm" value="" />
+    <button type="submit">Rechercher</button>
+</form>
+@if (Model.Count == 0)
+{
+    <p>Aucun résultat trouvé.</p>
+}
+else
+{
+    <ul>
+        @foreach (var employe in Model)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = employe.Id })">@employe.Nom, @employe.Prenom</a>
+            </li>
+        }
+    </ul>
+}

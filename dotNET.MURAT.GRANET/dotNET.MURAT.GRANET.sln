@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "..\Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFJalon2", "..\WPFJalon2\WPFJalon2.csproj", "{ADA4BC48-013B-4E34-872F-8C19F6544311}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPJalon3", "ASPJalon3\ASPJalon3.csproj", "{A9D909A0-9E05-42BD-8566-B03DCA3826F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{ADA4BC48-013B-4E34-872F-8C19F6544311}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA4BC48-013B-4E34-872F-8C19F6544311}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA4BC48-013B-4E34-872F-8C19F6544311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D909A0-9E05-42BD-8566-B03DCA3826F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D909A0-9E05-42BD-8566-B03DCA3826F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D909A0-9E05-42BD-8566-B03DCA3826F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D909A0-9E05-42BD-8566-B03DCA3826F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
