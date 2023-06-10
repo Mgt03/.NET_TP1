@@ -25,9 +25,10 @@ namespace dotNET.MURAT.GRANET
                 offre.Date = DateTime.Now;
                 offre.Salaire = 15000;
                 offre.Responsable = "Responsable 1";
-                offre.Statut = new Bibliotheque.Entity.Statut();
-                offre.Statut.Libelle = "Libelle";
-                offre.StatutId = 1234;
+                var status = new Bibliotheque.Entity.Statut();
+                offre.StatutId = status.Id;
+                status.Libelle = "Libelle 1";
+                offre.Statut = status;
                 context.Offres.Add(offre);
                 context.Offres.Add(offre);
                 context.Offres.Add(offre);

@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:my="clr-namespace:WPFJalon2.Views"
+        xmlns:my="clr-namespace:WPFJalon2.Views" xmlns:viewmodels="clr-namespace:WPFJalon2.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ListOffreVM}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1100" Width="1200">
     <Grid>
-        <my:ListOffre Grid.Row="1" DataContext="{Binding ListOffreVM}"></my:ListOffre>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!--ColumnDefinition Width="*"/-->
+        </Grid.ColumnDefinitions>
+        <my:ListOffre Grid.Column="0" DataContext="{Binding ListOffreVM, UpdateSourceTrigger=PropertyChanged}"></my:ListOffre>
     </Grid>
 </Window>

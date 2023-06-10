@@ -35,5 +35,11 @@ namespace BusinessLogicLayer
             return oq.GetAll().ToList();
 
         }
+
+        public List<Statut> GetAllStatuts()
+        {
+            StatutQuery sq = new StatutQuery(context);
+            return sq.GetAll().ToList();
+        }
     }
 }

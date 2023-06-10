@@ -3,21 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPFJalon2.Views"
+             xmlns:my="clr-namespace:WPFJalon2.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView ItemsSource="{Binding Offres}" SelectionChanged="ListView_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Row="0" ItemsSource="{Binding StatusAvailable}" 
+                  SelectedItem="{Binding StatutSelected, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Id}"/>
+                        <TextBlock Text=" - "/>
+                        <TextBlock Text="{Binding Path=Libelle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ListView Grid.Row="1" ItemsSource="{Binding OffresFiltrees}" SelectedItem="{Binding SelectedOffre}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Offre Information">
 
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Offre Id." Width="100"/>
+
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Intitule}" Header="Intitule" Width="100"/>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Width="100"/>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Employee No." Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        </Grid>
+        <my:DetailOffre Grid.Row="1" Grid.Column="1" DataContext="{Binding SelectedOffre, UpdateSourceTrigger=PropertyChanged}"></my:DetailOffre>
+    </Grid>
+    
 </UserControl>

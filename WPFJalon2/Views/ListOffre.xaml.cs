@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFJalon2.ViewModels;
 
 namespace WPFJalon2.Views
 {
@@ -29,6 +30,11 @@ namespace WPFJalon2.Views
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
 
         private void LastNameCM_Click(object sender, RoutedEventArgs e)

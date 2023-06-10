@@ -12,27 +12,27 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0">Id</Label>
-        <TextBox Text="{Binding Id}" Grid.Column="1" Grid.Row="0" IsReadOnly="True"/>
+        <TextBox Text="{Binding Id}" Grid.Column="1" Grid.Row="0"/>
         <Label Grid.Column="0" Grid.Row="1">Intitule</Label>
-        <TextBox Text="{Binding Intitule}" Grid.Column="1" Grid.Row="1" IsReadOnly="True"/>
+        <TextBox Text="{Binding Intitule}" Grid.Column="1" Grid.Row="1"/>
         <Label Grid.Column="0" Grid.Row="2">Date</Label>
-        <TextBox Text="{Binding Date}" Grid.Column="1" Grid.Row="2" IsReadOnly="True"/>
+        <TextBox Text="{Binding Date}" Grid.Column="1" Grid.Row="2"/>
         <Label Grid.Column="0" Grid.Row="3">Description</Label>
-        <TextBox Text="{Binding Description}" Grid.Column="1" Grid.Row="3" IsReadOnly="True"/>
+        <TextBox Text="{Binding Description}" Grid.Column="1" Grid.Row="3"/>
         <Label Grid.Column="0" Grid.Row="4">Salaire</Label>
-        <TextBox Text="{Binding Salaire}" Grid.Column="1" Grid.Row="4" IsReadOnly="True"/>
+        <TextBox Text="{Binding Salaire}" Grid.Column="1" Grid.Row="4"/>
         <Label Grid.Column="0" Grid.Row="5">Responsable</Label>
-        <TextBox Text="{Binding Responsable}" Grid.Column="1" Grid.Row="5" IsReadOnly="True"/>
-        <Label Grid.Column="0" Grid.Row="6">Status</Label>
-        <TextBox Text="{Binding Status}" Grid.Column="1" Grid.Row="6" IsReadOnly="True"/>
+        <TextBox Text="{Binding Responsable}" Grid.Column="1" Grid.Row="5"/>
+        <Label Grid.Column="0" Grid.Row="6">Statut</Label>
+        <TextBox Text="{Binding Statut.Libelle}" Grid.Column="1" Grid.Row="6"/>
     </Grid>
 </UserControl>

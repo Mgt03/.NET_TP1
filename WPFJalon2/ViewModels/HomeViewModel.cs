@@ -5,6 +5,7 @@ namespace WPFJalon2.ViewModels
         #region Variables
 
         private ListOffreVM _listOffreVM = null;
+        private DetailOffreVM _selectedOffreVM = null;
 
         #endregion
 
@@ -29,6 +30,11 @@ namespace WPFJalon2.ViewModels
         {
             get { return _listOffreVM; }
             set { _listOffreVM = value; }
+        }
+        public DetailOffreVM SelectedOffre
+        {
+            get { return _selectedOffreVM; }
+            set { _selectedOffreVM = value; }
         }
 
         #endregion

@@ -24,7 +24,7 @@ namespace WPFJalon2.ViewModels
 
         public DetailOffreVM(Offre e)
         {
-            _id = e.Id;
+            _id = e.Id ;
             _intitule = e.Intitule;
             _date = e.Date;
             _salaire = e.Salaire;
@@ -67,7 +67,7 @@ namespace WPFJalon2.ViewModels
             get { return _Responsable; }
             set { _Responsable = value; }
         }
-        public Statut Status
+        public Statut Statut
         {
             get { return _statut; }
             set { _statut = value; }
