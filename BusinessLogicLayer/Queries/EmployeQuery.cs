@@ -18,6 +18,11 @@ namespace BusinessLogicLayer.Queries
             return context.Employes;
         }
         
+        public IQueryable<Employe> Search(string searchTerm)
+        {
+            return context.Employes.Where(e => e.Nom.Contains(searchTerm) || e.Prenom.Contains(searchTerm));
+        }
+
         public IQueryable<Employe> GetByID(int id)
         {
             return context.Employes.Where(e => e.Id == id);

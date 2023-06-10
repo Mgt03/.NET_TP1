@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Bibliotheque.Entity;
@@ -13,21 +14,18 @@ namespace ASPjalon3.Controllers
             OffreQuery offreQuery
         )
         {
-            this._offreQuery = offreQuery;
+            _offreQuery = offreQuery;
         }
 
         public ActionResult Index()
         {
-            // Récupérer toutes les offres
-            IQueryable<Offre> offres = _offreQuery.GetAll();
-            return View(offres.ToList());
+            var offres = _offreQuery.GetAll().ToList();
+            return View(offres);
         }
 
         public ActionResult Details(int id)
         {
-            // Récupérer l'offre avec l'ID spécifié
-            IQueryable<Offre> offres = _offreQuery.GetAll();
-            var offre = offres.FirstOrDefault(o => o.Id == id);
+            var offre = _offreQuery.GetByID(id).FirstOrDefault();
             if (offre == null)
             {
                 return HttpNotFound("Offre non trouvée");
@@ -37,10 +35,8 @@ namespace ASPjalon3.Controllers
 
         public ActionResult Search(string searchTerm)
         {
-            // Rechercher les offres qui correspondent au terme de recherche
-            IQueryable<Offre> offres = _offreQuery.GetAll();
-            var filteredOffres = offres.Where(o => o.Intitule.Contains(searchTerm)).ToList();
-            return View("Index",filteredOffres);
+            var offres = _offreQuery.Search(searchTerm).ToList();
+            return View("Index",offres);
         }
     }
 }

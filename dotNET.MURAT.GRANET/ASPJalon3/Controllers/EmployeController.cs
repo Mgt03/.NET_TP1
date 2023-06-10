@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Bibliotheque.Entity;
 using BusinessLogicLayer.Queries;
 
 namespace ASPjalon3.Controllers
@@ -14,21 +12,19 @@ namespace ASPjalon3.Controllers
             EmployeQuery employeQuery
         )
         {
-            this._employeQuery = employeQuery;
+            _employeQuery = employeQuery;
         }
 
         public ActionResult Index()
         {
-            List<Employe> employes = _employeQuery.GetAll().ToList();
+            var employes = _employeQuery.GetAll().ToList();
             // Récupérer tous les employés
             return View(employes);
         }
 
         public ActionResult Details(int id)
         {
-            // Récupérer l'employé avec l'ID spécifié
-            IQueryable<Employe> employes = _employeQuery.GetAll();
-            var employe = employes.FirstOrDefault(e => e.Id == id);
+            var employe = _employeQuery.GetByID(id).FirstOrDefault();
             if (employe == null)
             {
                 return HttpNotFound("Employé non trouvé");
@@ -38,10 +34,8 @@ namespace ASPjalon3.Controllers
 
         public ActionResult Search(string searchTerm)
         {
-            IQueryable<Employe> employes = _employeQuery.GetAll();
-            // Rechercher les employés qui correspondent au terme de recherche
-            var filteredEmployes = employes.Where(e => e.Nom.Contains(searchTerm) || e.Prenom.Contains(searchTerm)).ToList();
-            return View("Index", filteredEmployes);
+            var employes = _employeQuery.Search(searchTerm).ToList();
+            return View("Index", employes);
         }
     }
 }
