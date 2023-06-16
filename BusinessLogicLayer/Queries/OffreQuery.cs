@@ -2,6 +2,7 @@
 using Bibliotheque.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,12 @@ namespace BusinessLogicLayer.Queries
         }
         public IQueryable<Offre> GetByID(int id)
         {
-            return context.Offres.Where(o => o.Id == id);
+            return context
+                .Offres
+                .Where(o => o.Id == id)
+                .Include(o => o.Statut)
+                .Include(o => o.Postulations)
+                .ThenInclude(p => p.Candidat);
         }
 
         public IQueryable<Offre> Search(string searchTerm)

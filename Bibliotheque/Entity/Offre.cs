@@ -5,6 +5,11 @@ namespace Bibliotheque.Entity
 {
     public class Offre
     {
+        public Offre()
+        {
+            Postulations = new HashSet<Postulation>();
+        }
+        
         public int Id { get; set; }
         public string Intitule { get; set; }
         public DateTime Date { get; set; }
