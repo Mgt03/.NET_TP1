@@ -24,6 +24,12 @@ namespace BusinessLogicLayer
             }
             return businessLogicLayer;
         }
+
+        public void UpdateOffre(Offre offre)
+        {
+            OffreCommand oc = new OffreCommand(context);
+            oc.Update(offre);
+        }
         public List<Employe> GetAllEmploye()
         {
             EmployeQuery eq = new EmployeQuery(context);

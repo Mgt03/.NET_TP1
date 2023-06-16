@@ -37,7 +37,7 @@
             <Label Grid.Column="0" Grid.Row="6">Statut</Label>
             <TextBox Text="{Binding Statut.Libelle}" Grid.Column="1" Grid.Row="6"/>
             <Label Grid.Column="0" Grid.Row="7">Postulant</Label>
-            <ListBox ItemsSource="{Binding Postulations}" Grid.Row="6" Grid.ColumnSpan="2" Margin="0,29,0,30" Grid.RowSpan="2" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox ItemsSource="{Binding Postulations}" Grid.Column="1" Grid.Row="7" Margin="0,29,0,30" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -49,11 +49,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <Button Content="Valider" Command="{Binding Valider}" Margin="0,208,0,32" />
-        <Button Content="Valider" Command="{Binding Valider}" Margin="0,208,0,32" />
-        <Button Content="Valider" Command="{Binding Valider}" Margin="0,208,0,32" />
-        <Button Content="Valider" Command="{Binding Valider}" Margin="0,208,0,32" />
-        <Button Content="Valider" Command="{Binding Valider}" Margin="0,208,0,32" />
+        <Button Content="Valider" Command="{Binding Valider}"/>
     </StackPanel>
 
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Bibliotheque.Entity;
+using BusinessLogicLayer;
 using Cours2_ExempleMVVM.ViewModels.Common;
 using System;
 using System.Collections.Generic;
@@ -96,10 +97,18 @@ namespace WPFJalon2.ViewModels
         }
         private void Save()
         {
-            Views.Operation operationWindow = new Views.Operation();
-            operationWindow.DataContext = this;
-            operationWindow.ShowDialog();
-            operationWindow.Close();
+            Manager manager = Manager.Instance();
+            Offre offre = new Offre();
+            offre.Id = _id;
+            offre.Intitule = _intitule;
+            offre.Description = _description;
+            offre.Date = _date;
+            offre.Salaire = _salaire;
+            offre.Responsable = _Responsable;
+            offre.StatutId = _statutId;
+            offre.Statut = _statut;
+            offre.Postulations = _Postulation;
+            manager.UpdateOffre(offre);
         }
     }
 }
