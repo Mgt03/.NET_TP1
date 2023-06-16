@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using Bibliotheque;
 using Bibliotheque.Entity;
 using System.Linq;
@@ -25,7 +26,13 @@ namespace BusinessLogicLayer.Queries
 
         public IQueryable<Employe> GetByID(int id)
         {
-            return context.Employes.Where(e => e.Id == id);
+            return context
+                .Employes
+                .Where(e => e.Id == id)
+                .Include(e => e.Experiences)
+                .Include(e => e.Formations)
+                .Include(e => e.Postulations)
+                .ThenInclude(p => p.Offre);
         }
     }
 }
