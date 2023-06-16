@@ -30,7 +30,6 @@ namespace WPFJalon2.ViewModels
             {
                 _statutSelected = _statusAvailable.ElementAt(0);
             }
-            FiltrerOffres();
             _offre = new ObservableCollection<DetailOffreVM>();
             foreach(Offre o in Manager.Instance().GetAllOffres())
             {
@@ -39,6 +38,7 @@ namespace WPFJalon2.ViewModels
             if(_offre != null && _offre.Count > 0)
             {
                 _selectedOffre = _offre.ElementAt(0);
+                FiltrerOffres();
             }
         }
         public ObservableCollection<DetailOffreVM> Offres
