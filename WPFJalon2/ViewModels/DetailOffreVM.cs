@@ -84,20 +84,22 @@ namespace WPFJalon2.ViewModels
             set { _Postulation = value; }
         }
 
-        public ICommand AddOperation
+
+        public ICommand Valider
         {
             get
             {
                 if (_addOperation == null)
-                    _addOperation = new RelayCommand(() => this.ShowWindowOperation());
+                    _addOperation = new RelayCommand(() => this.Save());
                 return _addOperation;
             }
         }
-        private void ShowWindowOperation()
+        private void Save()
         {
             Views.Operation operationWindow = new Views.Operation();
             operationWindow.DataContext = this;
             operationWindow.ShowDialog();
+            operationWindow.Close();
         }
     }
 }
