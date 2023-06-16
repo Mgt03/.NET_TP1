@@ -31,8 +31,7 @@ namespace BusinessLogicLayer.Queries
                 .Where(e => e.Id == id)
                 .Include(e => e.Experiences)
                 .Include(e => e.Formations)
-                .Include(e => e.Postulations)
-                .ThenInclude(p => p.Offre);
+                .Include(e => e.Postulations.Select(ep => ep.Offre));
         }
     }
 }

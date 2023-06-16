@@ -28,8 +28,7 @@ namespace BusinessLogicLayer.Queries
                 .Offres
                 .Where(o => o.Id == id)
                 .Include(o => o.Statut)
-                .Include(o => o.Postulations)
-                .ThenInclude(p => p.Candidat);
+                .Include(o => o.Postulations.Select(op => op.Employe));
         }
 
         public IQueryable<Offre> Search(string searchTerm)
