@@ -78,5 +78,11 @@ namespace BusinessLogicLayer
             PostulationCommand pc = new PostulationCommand(context);
             pc.Ajouter(postulation);
         }
+
+        public void AddOffre(Offre offre)
+        {
+            OffreCommand oc = new OffreCommand(context);
+            oc.Ajouter(offre);
+        }
     }
 }

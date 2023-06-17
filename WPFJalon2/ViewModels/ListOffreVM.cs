@@ -17,6 +17,7 @@ namespace WPFJalon2.ViewModels
         private DetailOffreVM _selectedOffre;
         private ObservableCollection<Statut> _statusAvailable;
         private Statut _statutSelected;
+        private CreationOffreVM _newOffre = new CreationOffreVM(new OffreVM());
 
         public ListOffreVM()
         {
@@ -50,6 +51,17 @@ namespace WPFJalon2.ViewModels
                 OnPropertyChanged("Offres");
             }
         }
+
+        public CreationOffreVM NewOffre
+        {
+            get { return _newOffre; }
+            set
+            {
+                _newOffre = value;
+                OnPropertyChanged("NewOffre");
+            }
+        }   
+
         public DetailOffreVM SelectedOffre
         {
             get { return _selectedOffre; }

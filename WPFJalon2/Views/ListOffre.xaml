@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -27,7 +28,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListView Grid.Row="1" ItemsSource="{Binding OffresFiltrees}" SelectedItem="{Binding SelectedOffre}">
+        <ListView Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" ItemsSource="{Binding OffresFiltrees}" SelectedItem="{Binding SelectedOffre}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Offre Information">
 
@@ -40,6 +41,7 @@
             </ListView.View>
         </ListView>
         <my:DetailOffre Grid.Row="1" Grid.Column="1" DataContext="{Binding SelectedOffre, UpdateSourceTrigger=PropertyChanged}"></my:DetailOffre>
+        <my:CreationOffre Grid.Row="2" Grid.Column="1" DataContext="{Binding NewOffre}"></my:CreationOffre>
     </Grid>
     
 </UserControl>

@@ -3,10 +3,12 @@ using BusinessLogicLayer;
 using Cours2_ExempleMVVM.ViewModels.Common;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WPFJalon2.Mapper;
 
 namespace WPFJalon2.ViewModels
 {
@@ -20,7 +22,7 @@ namespace WPFJalon2.ViewModels
         private string _Responsable;
         private Statut _statut;
         private int _statutId;
-        private ICollection<Postulation> _Postulation;
+        private ObservableCollection<PostulationVM> _postulation;
         private RelayCommand _addOperation;
 
         public DetailOffreVM(Offre e)
@@ -33,7 +35,8 @@ namespace WPFJalon2.ViewModels
             _Responsable = e.Responsable;
             _statut = e.Statut;
             _statutId = e.StatutId;
-            _Postulation = e.Postulations;
+            _postulation = PostulationMapper.ToViewModels(e.Postulations);
+            Console.WriteLine("TOTO");
         }
 
         public int Id
@@ -79,10 +82,10 @@ namespace WPFJalon2.ViewModels
             set { _statutId = value; }
         }
 
-        public ICollection<Postulation> Postulations
+        public ObservableCollection<PostulationVM> Postulations
         {
-            get { return _Postulation; }
-            set { _Postulation = value; }
+            get { return _postulation; }
+            set { _postulation = value; }
         }
 
 
@@ -107,7 +110,7 @@ namespace WPFJalon2.ViewModels
             offre.Responsable = _Responsable;
             offre.StatutId = _statutId;
             offre.Statut = _statut;
-            offre.Postulations = _Postulation;
+            offre.Postulations = new HashSet<Postulation>(PostulationMapper.ToModels(_postulation));
             manager.UpdateOffre(offre);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Bibliotheque;
 using Bibliotheque.Entity;
+using System;
 using System.Linq;
 
 namespace BusinessLogicLayer
@@ -11,6 +12,12 @@ namespace BusinessLogicLayer
         public OffreCommand(Context context)
         {
             this.context = context;
+        }
+
+        internal void Ajouter(Offre offre)
+        {
+            context.Offres.Add(offre);
+            context.SaveChanges();
         }
 
         internal int Update(Offre offre)

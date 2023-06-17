@@ -20,7 +20,8 @@ namespace BusinessLogicLayer.Queries
 
         public IQueryable<Offre> GetAll()
         {
-            return context.Offres;
+            return context.Offres.Include(o => o.Statut)
+                .Include(o => o.Postulations.Select(op => op.Employe)); ;
         }
         public IQueryable<Offre> GetByID(int id)
         {

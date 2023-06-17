@@ -18,6 +18,6 @@ namespace Bibliotheque.Entity
         public string Responsable { get; set; }
         public Statut Statut { get; set; }
         public int StatutId { get; set; }
-        public ICollection<Postulation> Postulations { get; set; }
+        public HashSet<Postulation> Postulations { get; set; }
     }
 }

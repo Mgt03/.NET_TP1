@@ -12,8 +12,8 @@ namespace Bibliotheque.Entity
         public int Anciennete { get; set; }
         public string Biographie { get; set; }
         
-        public ICollection<Formation> Formations { get; set; }
-        public ICollection<Experience> Experiences { get; set; }
-        public ICollection<Postulation> Postulations { get; set; }
+        public HashSet<Formation> Formations { get; set; }
+        public HashSet<Experience> Experiences { get; set; }
+        public HashSet<Postulation> Postulations { get; set; }
     }
 }
