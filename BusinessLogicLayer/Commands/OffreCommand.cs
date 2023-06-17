@@ -20,6 +20,16 @@ namespace BusinessLogicLayer
             context.SaveChanges();
         }
 
+        internal void Delete(int id)
+        {
+            Offre offre = context.Offres.Where(e => e.Id == id).FirstOrDefault();
+            if (offre != null)
+            {
+                context.Offres.Remove(offre);
+                context.SaveChanges();
+            }
+        }
+
         internal int Update(Offre offre)
         {
             Offre offre1 = context.Offres.Where(e => e.Id == offre.Id).FirstOrDefault();

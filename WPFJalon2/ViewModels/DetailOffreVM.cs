@@ -98,6 +98,23 @@ namespace WPFJalon2.ViewModels
                 return _addOperation;
             }
         }
+
+        public ICommand Delete
+        {
+            get
+            {
+                if (_addOperation == null)
+                    _addOperation = new RelayCommand(() => this.DeleteOffre());
+                return _addOperation;
+            }
+        }
+
+        private void DeleteOffre()
+        {
+            Manager manager = Manager.Instance();
+            manager.DeleteOffre(_id);
+        }
+
         private void Save()
         {
             Manager manager = Manager.Instance();

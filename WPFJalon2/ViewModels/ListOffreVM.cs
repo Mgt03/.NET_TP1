@@ -58,6 +58,7 @@ namespace WPFJalon2.ViewModels
             set
             {
                 _newOffre = value;
+                RecupOffre();
                 OnPropertyChanged("NewOffre");
             }
         }   
@@ -78,8 +79,23 @@ namespace WPFJalon2.ViewModels
             set
             {
                 _statutSelected = value;
+                RecupOffre();
                 FiltrerOffres();
                 OnPropertyChanged("StatusSelected");
+            }
+        }
+
+        private void RecupOffre()
+        {
+            _offre = new ObservableCollection<DetailOffreVM>();
+            foreach (Offre o in Manager.Instance().GetAllOffres())
+            {
+                _offre.Add(new DetailOffreVM(o));
+            }
+            if (_offre != null && _offre.Count > 0)
+            {
+                _selectedOffre = _offre.ElementAt(0);
+                FiltrerOffres();
             }
         }
 

@@ -7,10 +7,11 @@ using System.Windows.Input;
 using System.Data.Entity.Core.Common.EntitySql;
 using BusinessLogicLayer;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WPFJalon2.ViewModels
 {
-    public class CreationOffreVM
+    public class CreationOffreVM : BaseViewModel
     {
         private int _id;
         private string _intitule;
@@ -22,9 +23,21 @@ namespace WPFJalon2.ViewModels
         private int _statutId;
         private ObservableCollection<PostulationVM> _postulation;
         private RelayCommand _addOperation;
+        private ObservableCollection<Statut> _statusAvailable;
+        private Statut _statutSelected;
+        private string _error;
 
         public CreationOffreVM(OffreVM o)
         {
+            _statusAvailable = new ObservableCollection<Statut>();
+            foreach (Statut statut in Manager.Instance().GetAllStatuts())
+            {
+                _statusAvailable.Add(statut);
+            }
+            if (_statusAvailable != null && _statusAvailable.Count() > 0)
+            {
+                _statutSelected = _statusAvailable.ElementAt(0);
+            }
             _intitule = o.Intitule;
             _date = o.Date;
             _salaire = o.Salaire;
@@ -66,6 +79,36 @@ namespace WPFJalon2.ViewModels
             set { _Responsable = value; }
         }
 
+        public string Error
+        {
+            get { return _error; }
+            set
+            {
+                _error = value;
+                OnPropertyChanged("Error");
+            }
+        }
+
+        public Statut StatutSelected
+        {
+            get { return _statutSelected; }
+            set
+            {
+                _statutSelected = value;
+                OnPropertyChanged("StatusSelected");
+            }
+        }
+
+        public ObservableCollection<Statut> StatusAvailable
+        {
+            get { return _statusAvailable; }
+            set
+            {
+                _statusAvailable = value;
+                OnPropertyChanged("StatusAvailable");
+            }
+        }
+
         public ICommand Creer
         {
             get
@@ -78,6 +121,14 @@ namespace WPFJalon2.ViewModels
 
         private void Create()
         {
+            if (_statutSelected == null)
+            {
+                _error = "Veuillez choisir un statut";
+            }
+            else
+            {
+                _error = "";
+            }
             Manager manager = Manager.Instance();
             Offre offre = new Offre();
             offre.Intitule = _intitule;
@@ -85,8 +136,9 @@ namespace WPFJalon2.ViewModels
             offre.Date = DateTime.Now;
             offre.Salaire = _salaire;
             offre.Responsable = _Responsable;
-            offre.StatutId = _statutId;
-            offre.Postulations = new HashSet<Postulation>(PostulationMapper.ToModels(_postulation));
+            offre.Statut = _statutSelected;
+            offre.StatutId = _statutSelected.Id;
+            offre.Postulations = new HashSet<Postulation>(PostulationMapper.ToModels(new ObservableCollection<PostulationVM>()));
             manager.AddOffre(offre);
         }
     }

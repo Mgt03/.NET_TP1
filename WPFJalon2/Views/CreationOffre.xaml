@@ -17,6 +17,8 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0">Intitule</Label>
             <TextBox Text="{Binding Intitule}" Grid.Column="1" Grid.Row="0"/>
@@ -26,6 +28,20 @@
             <TextBox Text="{Binding Salaire}" Grid.Column="1" Grid.Row="2"/>
             <Label Grid.Column="0" Grid.Row="3">Responsable</Label>
             <TextBox Text="{Binding Responsable}" Grid.Column="1" Grid.Row="3"/>
+            <Label Grid.Column="0" Grid.Row="4">Statut</Label>
+            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding StatusAvailable}" 
+                  SelectedItem="{Binding StatutSelected, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Id}"/>
+                            <TextBlock Text=" - "/>
+                            <TextBlock Text="{Binding Path=Libelle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Error}"/>
         </Grid>
         <Button Content="Creer" Command="{Binding Creer}"/>
     </StackPanel>
